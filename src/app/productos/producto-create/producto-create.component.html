@@ -1,0 +1,67 @@
+<div class="container-fluid p-0">
+    <div class="d-flex justify-content-center">
+        @if(product){
+            <div class="mb-3">
+                <h1 class="h3 d-inline align-middle"><b>ACTUALIZAR PRODUCTO</b></h1>
+            </div>
+        }@else {
+            <div class="mb-3">
+                <h1 class="h3 d-inline align-middle"><b>NUEVO PRODUCTO</b></h1>
+            </div>
+        }
+    </div>   
+    <div class="d-flex justify-content-center">
+        <div class="card col-lg-8">
+            @if(form){
+                <form class="mx-5 my-5" [formGroup]="form" (ngSubmit)="create()">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mb-4">
+                                <label class="form-label"><b>Nombre</b></label>
+                                <input id="nombre" type="text" class="form-control" placeholder="ej: Casaca" formControlName="nombre">
+                                <div class="form-text">Ingrese el nombre del producto</div>
+                            </div>
+                        </div>                  
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="mb-4">
+                                <label class="form-label"><b>Descripción</b></label>
+                                <textarea id="descripcion" class="form-control" rows="3" placeholder="ej: descripción de la casaca" style="height: 50px;" formControlName="descripcion"></textarea>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <label class="form-label"><b>Stock</b></label>
+                            <input id="stock" type="number" class="form-control" placeholder="Ingrese el stock" formControlName="stock">  
+                        </div>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-5">
+                            <label class="form-label"><b>Tipo</b></label>
+                            <input id="tipo" type="number" class="form-control" placeholder="Ingrese el tipo" formControlName="tipo">  
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="d-flex justify-content-end">           
+                        <div class="col-lg-5">
+                            <button style="width: 100%;" class="btn btn-primary">
+                                @if(product){
+                                    Actualizar
+                                }@else{
+                                    Guardar
+                                }
+                            </button>                                                      
+                        </div> 
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-5">                        
+                            <a  style="width: 100%;" class="btn btn-secondary" routerLink="/productos">Cancelar</a>  
+                        </div>         
+                    </div>
+                </form>
+            }
+        </div>        
+    </div>    
+</div>
